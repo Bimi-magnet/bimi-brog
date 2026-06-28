@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>bimi-brog – ゼロから始める一人暮らし奮闘記</title>
+  <meta name="description" content="家事初心者が奮闘しながら成長する様子を動画とブログで発信します。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- OG タグは GitHub Pages にデプロイしたら自動で取得されます -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Lunr.js（検索エンジン） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"
+          integrity="sha512-6M2YZi9vI7mB6O1XL9rgiuAlWjd5DW8KueZGypcf8f+bXgsB+3nE9O/NKADzXKuwHFbQ4QXtYXHAkCjR4JY3hw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <header class="site-header">
+    <img src="assets/img/logo.png" alt="bimi-brog ロゴ" class="logo">
+    <h1>bimi-brog</h1>
+  </header>
+
+  <main class="layout">
+    <!-- ---------- 左側：記事リスト ---------- -->
+    <section class="posts" id="posts-container">
+      <!-- JS が自動で記事カードを挿入します -->
+    </section>
+
+    <!-- ---------- 右側：サイドバー ---------- -->
+    <aside class="sidebar">
+      <!-- ダークモード切替 -->
+      <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" id="dark-mode-toggle">
+          <span class="slider round"></span>
+        </label>
+        <span>ダークモード</span>
+      </div>
+
+      <!-- 検索 -->
+      <div class="widget search-widget">
+        <input type="text" id="search-input" placeholder="記事検索…">
+        <ul id="search-results"></ul>
+      </div>
+
+      <!-- 人気記事（仮） -->
+      <div class="widget">
+        <h3>人気記事</h3>
+        <ul id="popular-list">
+          <li><a href="#">（サンプル）米の研ぎ方と炊飯</a></li>
+          <li><a href="#">洗濯機のボタンが多すぎて詰んだ</a></li>
+        </ul>
+      </div>
+
+      <!-- 新着記事 -->
+      <div class="widget">
+        <h3>新着記事</h3>
+        <ul id="newest-list">
+          <li><a href="#">（サンプル）初めての自炊「米の研ぎ方」</a></li>
+        </ul>
+      </div>
+
+      <!-- 自己紹介 -->
+      <div class="widget about-widget">
+        <h3>自己紹介</h3>
+        <p>高校生活で一人暮らしデビュー。家事は全くの初心者です。失敗しながら成長するので、ぜひ応援してください！</p>
+        <!-- SNS アイコンは後で差し替え -->
+        <div class="social-links">
+          <a href="#" target="_blank">X</a> |
+          <a href="#" target="_blank">Instagram</a> |
+          <a href="#" target="_blank">Facebook</a>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 bimi-brog. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

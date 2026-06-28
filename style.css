@@ -1,0 +1,182 @@
+/* -------------------------------------------------
+   変数定義（白・青・ダーク）
+------------------------------------------------- */
+:root {
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+  --color-primary: #0066ff;
+  --color-accent: #0052cc;
+  --color-muted: #f4f4f4;
+  --color-border: #e0e0e0;
+  --font-base: 'Inter', system-ui, sans-serif;
+}
+
+/* ダークモード用変数は data-theme="dark" が付いたときに上書き */
+[data-theme="dark"] {
+  --color-bg: #111111;
+  --color-fg: #eeeeee;
+  --color-muted: #1e1e1e;
+  --color-border: #333333;
+}
+
+/* -------------------------------------------------
+   基本リセット & タイポグラフィ
+------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------
+   ヘッダー
+------------------------------------------------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, var(--color-primary), #0099ff);
+  color: #fff;
+}
+.logo {
+  height: 40px;
+  margin-right: 0.8rem;
+}
+
+/* -------------------------------------------------
+   レイアウト（Flex）: 左記事リスト + 右サイドバー
+------------------------------------------------- */
+.layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 2rem auto;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+.posts {
+  flex: 2;
+}
+.sidebar {
+  flex: 1;
+  max-width: 300px;
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+/* -------------------------------------------------
+   カード（記事プレビュー）
+------------------------------------------------- */
+.post-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-muted);
+  margin-bottom: 1.5rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+.post-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.post-card .content {
+  padding: 1rem;
+}
+.post-card .content h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+.post-card .content p {
+  font-size: 0.9rem;
+  color: var(--color-fg);
+}
+
+/* -------------------------------------------------
+   サイドバーウィジェット
+------------------------------------------------- */
+.widget {
+  margin-bottom: 2rem;
+}
+.widget h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+.widget ul {
+  list-style: none;
+}
+.widget a {
+  color: var(--color-fg);
+  text-decoration: none;
+}
+.widget a:hover {
+  color: var(--color-primary);
+}
+
+/* -------------------------------------------------
+   ダークモードスイッチ
+------------------------------------------------- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--color-primary);
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* -------------------------------------------------
+   フッター
+------------------------------------------------- */
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  background: var(--color-muted);
+  margin-top: 3rem;
+}
+
+/* -------------------------------------------------
+   レスポンシブ
+------------------------------------------------- */
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .sidebar { max-width: none; position: static; }
+}
